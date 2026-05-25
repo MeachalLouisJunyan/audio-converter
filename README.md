@@ -1,17 +1,36 @@
 # Audio Converter
 
-Convert 50+ audio formats to WAV / MP3. Zero Python dependencies — just needs `ffmpeg`.
+Convert 50+ audio formats to WAV / MP3. Two interfaces:
 
-## Quick start
+- **GUI** — drag & drop files/folders, batch convert
+- **CLI** — command-line for scripting
+
+Requires `ffmpeg` on PATH. GUI requires `tkinterdnd2` (optional, falls back to buttons).
+
+## Install
 
 ```bash
-python audio_convert.py song.flac --to mp3
-python audio_convert.py music/ -R --to both -o output/
+pip install -r requirements.txt
+# ffmpeg:
+#   Windows: scoop install ffmpeg
+#   macOS:   brew install ffmpeg
+#   Linux:   sudo apt install ffmpeg
 ```
 
-## Usage
+## GUI
 
+```bash
+python audio_convert_gui.py
 ```
+
+- Drag & drop files or entire folders
+- Also supports a folder-picker dialog
+- Options: WAV / MP3 / both, bitrate, bit depth, samplerate
+- Real-time progress bar
+
+## CLI
+
+```bash
 python audio_convert.py <paths...> [options]
 ```
 
@@ -26,6 +45,17 @@ python audio_convert.py <paths...> [options]
 | `--delete-original` | Delete source after conversion |
 | `--formats` | List all supported input formats |
 
+## Examples
+
+```bash
+# CLI
+python audio_convert.py song.flac --to mp3
+python audio_convert.py music/ -R --to both -o output/
+
+# GUI — just launch and drag files in
+python audio_convert_gui.py
+```
+
 ## Supported formats
 
-50+ formats including: flac, wav, aiff, alac, ape, wv, tta, dsf, dff, mp3, aac, ogg, opus, wma, ac3, dts, mid, ra, amr, au, caf, voc, raw, pcm, and more.
+50+ formats: flac, wav, aiff, alac, ape, wv, tta, dsf, dff, mp3, aac, ogg, opus, wma, ac3, dts, mid, ra, amr, au, caf, voc, raw, pcm, and more.
