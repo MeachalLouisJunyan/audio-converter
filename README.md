@@ -1,61 +1,97 @@
 # Audio Converter
 
-Convert 50+ audio formats to WAV / MP3. Two interfaces:
+[![Stars](https://img.shields.io/badge/⭐_Stars-0-blue)]()
+[![License](https://img.shields.io/badge/License-MIT-green)]()
+[![Python](https://img.shields.io/badge/Python-3.8+-orange)]()
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)]()
 
-- **GUI** — drag & drop files/folders, batch convert
-- **CLI** — command-line for scripting
+> **50+ 音频格式一键互转，市面所有音源 → WAV / MP3**
 
-Requires `ffmpeg` on PATH. GUI requires `tkinterdnd2` (optional, falls back to buttons).
+---
 
-## Install
+## ✨ 功能特色
+
+| | 特性 | 说明 |
+|---|------|------|
+| 🖱️ | **拖拽式 GUI** | 支持拖拽文件和文件夹，一键转换 |
+| 🎛️ | **51 种格式支持** | FLAC、AAC、OGG、WMA、APE、DSD……市面几乎所有音频格式 |
+| ⚡ | **FFmpeg 驱动** | 底层基于 FFmpeg，稳定高效，质量无损 |
+| 📦 | **批量处理** | 支持文件夹递归扫描，批量排队转换 |
+| 🌸 | **动漫主题** | 内置萌系动漫风格 GUI 主题（可选） |
+
+---
+
+## 🖼️ GUI 界面
+
+```bash
+python audio_convert_gui.py
+```
+
+![GUI 截图占位](docs/screenshot.png)
+
+拖拽音频文件或整个文件夹到窗口即可开始转换。支持 WAV / MP3 / 同时输出，可选比特率、位深、采样率，实时进度条一目了然。
+
+**动漫主题版：**
+```bash
+python audio_convert_gui_anime.py
+```
+
+---
+
+## ⌨️ CLI 命令行
+
+```bash
+python audio_convert.py <路径...> [选项]
+```
+
+| 选项 | 说明 |
+|------|------|
+| `--to wav\|mp3\|both` | 输出格式（默认 both） |
+| `--outdir`, `-o` | 输出目录（默认 ./converted） |
+| `--mp3-bitrate` | 128k / 192k / 256k / 320k（默认） |
+| `--wav-bit` | 16（默认）/ 24 |
+| `--samplerate`, `-r` | 重采样（0 = 保持原始） |
+| `--recursive`, `-R` | 递归处理子目录 |
+| `--delete-original` | 转换后删除源文件 |
+| `--formats` | 列出所有支持的输入格式 |
+
+**示例：**
+```bash
+python audio_convert.py song.flac --to mp3
+python audio_convert.py music/ -R --to both -o output/
+```
+
+---
+
+## 📦 安装
 
 ```bash
 pip install -r requirements.txt
-# ffmpeg:
-#   Windows: scoop install ffmpeg
-#   macOS:   brew install ffmpeg
-#   Linux:   sudo apt install ffmpeg
 ```
 
-## GUI
+### FFmpeg 安装
 
-```bash
-python audio_convert_gui.py
-```
+| 系统 | 命令 |
+|------|------|
+| Windows | `scoop install ffmpeg` 或下载 [ffmpeg.org](https://ffmpeg.org) 并将 `bin` 加入 PATH |
+| macOS   | `brew install ffmpeg` |
+| Linux   | `sudo apt install ffmpeg` |
 
-- Drag & drop files or entire folders
-- Also supports a folder-picker dialog
-- Options: WAV / MP3 / both, bitrate, bit depth, samplerate
-- Real-time progress bar
+---
 
-## CLI
+## 📊 对比：Audio Converter vs 在线转换工具
 
-```bash
-python audio_convert.py <paths...> [options]
-```
+| 维度 | Audio Converter | 在线转换工具 |
+|------|----------------|-------------|
+| 🔒 **隐私安全** | ✅ 本地转换，文件不上传 | ❌ 文件需上传到服务器 |
+| 📦 **批量处理** | ✅ 支持文件夹批量递归处理 | ❌ 通常单文件限制 |
+| 🚫 **离线可用** | ✅ 完全离线，无需网络 | ❌ 必须联网 |
+| ⚡ **转换速度** | ✅ FFmpeg 本地极速转换 | ❌ 受上传带宽和服务器排队限制 |
+| 🎯 **格式数量** | ✅ 51 种输入格式 | ⚠️ 通常仅支持常见格式 |
+| 💰 **费用** | ✅ 免费开源 | ⚠️ 付费订阅或次数限制 |
 
-| Option | Description |
-|--------|-------------|
-| `--to wav\|mp3\|both` | Output format (default: both) |
-| `--outdir`, `-o` | Output directory (default: ./converted) |
-| `--mp3-bitrate` | 128k / 192k / 256k / 320k (default) |
-| `--wav-bit` | 16 (default) / 24 |
-| `--samplerate`, `-r` | Resample (0 = keep original) |
-| `--recursive`, `-R` | Recurse into directories |
-| `--delete-original` | Delete source after conversion |
-| `--formats` | List all supported input formats |
+---
 
-## Examples
+## 支持格式
 
-```bash
-# CLI
-python audio_convert.py song.flac --to mp3
-python audio_convert.py music/ -R --to both -o output/
-
-# GUI — just launch and drag files in
-python audio_convert_gui.py
-```
-
-## Supported formats
-
-50+ formats: flac, wav, aiff, alac, ape, wv, tta, dsf, dff, mp3, aac, ogg, opus, wma, ac3, dts, mid, ra, amr, au, caf, voc, raw, pcm, and more.
+FLAC、WAV、AIFF、ALAC、APE、WV、TTA、DSF、DFF、MP3、AAC、OGG、Opus、WMA、AC3、DTS、MID、RA、AMR、AU、CAF、VOC、RAW、PCM 等 50+ 种格式。
