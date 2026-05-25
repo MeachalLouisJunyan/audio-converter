@@ -1,15 +1,10 @@
 # Audio Converter
 
-[![Stars](https://img.shields.io/badge/⭐_Stars-0-blue)]()
-[![License](https://img.shields.io/badge/License-MIT-green)]()
-[![Python](https://img.shields.io/badge/Python-3.8+-orange)]()
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)]()
-
 > **50+ 音频格式一键互转，市面所有音源 → WAV / MP3**
 
 ---
 
-## ✨ 功能特色
+## 功能特色
 
 | | 特性 | 说明 |
 |---|------|------|
@@ -21,26 +16,24 @@
 
 ---
 
-## 🖼️ GUI 界面
+## GUI 界面
 
-```bash
+```
 python audio_convert_gui.py
 ```
-
-![GUI 截图占位](docs/screenshot.png)
 
 拖拽音频文件或整个文件夹到窗口即可开始转换。支持 WAV / MP3 / 同时输出，可选比特率、位深、采样率，实时进度条一目了然。
 
 **动漫主题版：**
-```bash
+```
 python audio_convert_gui_anime.py
 ```
 
 ---
 
-## ⌨️ CLI 命令行
+## CLI 命令行
 
-```bash
+```
 python audio_convert.py <路径...> [选项]
 ```
 
@@ -56,16 +49,16 @@ python audio_convert.py <路径...> [选项]
 | `--formats` | 列出所有支持的输入格式 |
 
 **示例：**
-```bash
+```
 python audio_convert.py song.flac --to mp3
 python audio_convert.py music/ -R --to both -o output/
 ```
 
 ---
 
-## 📦 安装
+## 安装
 
-```bash
+```
 pip install -r requirements.txt
 ```
 
@@ -73,13 +66,13 @@ pip install -r requirements.txt
 
 | 系统 | 命令 |
 |------|------|
-| Windows | `scoop install ffmpeg` 或下载 [ffmpeg.org](https://ffmpeg.org) 并将 `bin` 加入 PATH |
+| Windows | `scoop install ffmpeg` 或下载 ffmpeg.org 并将 `bin` 加入 PATH |
 | macOS   | `brew install ffmpeg` |
 | Linux   | `sudo apt install ffmpeg` |
 
 ---
 
-## 📊 对比：Audio Converter vs 在线转换工具
+## 对比：Audio Converter vs 在线转换工具
 
 | 维度 | Audio Converter | 在线转换工具 |
 |------|----------------|-------------|
